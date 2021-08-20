@@ -31,28 +31,30 @@ app = Flask(__name__)
 # 메인 페이지 라우팅
 @app.route("/")
 
-def graphs():
-    locale.setlocale(locale.LC_TIME, 'pt_PT.UTF-8')
-    getMonth()
-scheduler = BackgroundScheduler()
-scheduler.add_job(func=graphs, trigger='cron', year='*', month='*', day='last')
-scheduler.start()
+# def graphs():
+#     locale.setlocale(locale.LC_TIME, 'pt_PT.UTF-8')
+#     getMonth()
+# scheduler = BackgroundScheduler()
+# scheduler.add_job(func=graphs, trigger='cron', year='*', month='*', day='last')
+# scheduler.start()
         
 
 
 # 데이터 예측 처리
-@app.route('/predict', methods=['GET'])
+@app.route('/predict', methods=['POST'])
 def make_prediction():
-    if request.method == 'GET':
-
+    if request.method == 'POST' :
         # 원하는 값 받기
-        picked = request.args.get('category_id', None)
-
+        picked = request.form
+        print(picked)
+        
         ########################################## 데이터 받고 ds,y 로 저장 ##########################################
+#         데이터 로드
         from fbprophet import Prophet
         import pandas as pd
         #potato_su_good = pd.read_csv(name_d + '.csv')
-        potato_su_good = pd.read_csv('./식량작물_쌀_전체_등급_상품_단위_20kg.csv')
+        data_name = picked['부류']+'_'+picked['품목']+'_'+picked['품종']
+        potato_su_good = pd.read_csv('./{}.csv'.format(data_name))
 
         # 연평균 컬럼 따로 빼놓고 potato_su_good에서 삭제
         potato_su_good_mean = potato_su_good['연평균']
@@ -283,6 +285,6 @@ def make_prediction():
 
 if __name__ == '__main__':
     # Flask 서비스 스타트
-    crawling()
+#     crawling()
     make_prediction()
     app.run(host='0.0.0.0', port=8000, debug=True)
