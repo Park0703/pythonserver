@@ -17,20 +17,12 @@ from sklearn.metrics import mean_absolute_error
 from datetime import datetime
 import time
 import calendar
-
-# Flask
-# Jinja2
-# numpy
-# scikit-learn
-# scipy
-# virtualenv
-# pillow
-
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 app = Flask(__name__)
 
 
-# 메인 페이지 라우팅
+# 메인 페이지 ,타암셋업 라우팅
 @app.route("/")
 
 # def graphs():
