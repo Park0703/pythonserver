@@ -1,3 +1,5 @@
+#  pip install -r requirements.txt
+
 import flask
 from flask import Flask, request, render_template
 from sklearn.externals import joblib
