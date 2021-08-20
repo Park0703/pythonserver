@@ -1,7 +1,12 @@
 Flask
 Jinja2
-numpy
+
 scikit-learn
+numpy
 scipy
-virtualenv
-pillow
+pandas
+matplotlib
+
+selenium
+bs4
+requests
