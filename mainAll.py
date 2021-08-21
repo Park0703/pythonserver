@@ -279,5 +279,5 @@ def make_prediction():
 if __name__ == '__main__':
     # Flask 서비스 스타트
 #     crawling()
-    make_prediction()
+#     make_prediction()
     app.run(host='0.0.0.0', port=8000, debug=True)
