@@ -10,3 +10,4 @@ matplotlib
 selenium
 bs4
 requests
+apscheduler
