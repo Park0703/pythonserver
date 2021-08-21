@@ -8,6 +8,13 @@ pandas
 matplotlib
 
 selenium
-bs4
+beautifulsoup4
 requests
 apscheduler
+
+pystan
+setuptools
+fbprophet
+statsmodels
+itertools
+
