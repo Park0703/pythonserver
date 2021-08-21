@@ -16,7 +16,7 @@ from sklearn.metrics import mean_absolute_error
 from datetime import datetime
 import time
 import calendar
-from apscheduler.schedulers.blocking import BlockingScheduler
+# from apscheduler.schedulers.blocking import BlockingScheduler
 
 app = Flask(__name__)
 
